@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: a32accf32b5c99c4582ddf1b53df48c6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - myDeathSound: {fileID: 6431680710567382651, guid: 790f89febf11ca84b8d35c2cbd3c05d4,
+      type: 3}
+  - myDebris: {fileID: 9179687076496091788, guid: 7bb18eeef19675642960d6eadd5f9de1,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

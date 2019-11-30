@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: d924b1d9eaa3b1e409d39c738a20a528
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - myTrail_Prefab: {fileID: 6967876297204450833, guid: 396cccaac73879b449e290097d48b94f,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

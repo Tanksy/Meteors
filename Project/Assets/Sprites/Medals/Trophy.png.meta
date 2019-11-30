@@ -1,0 +1,562 @@
+fileFormatVersion: 2
+guid: 0bd70fa2df86e10468c99306ceeb95ea
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2769572990719953420
+    second: viki_0
+  - first:
+      213: 7999843476936578581
+    second: viki_1
+  - first:
+      213: 2031653398517579767
+    second: viki_2
+  - first:
+      213: -9158130046081463925
+    second: viki_3
+  - first:
+      213: -5025001595741406077
+    second: viki_4
+  - first:
+      213: 1066190941470712798
+    second: viki_5
+  - first:
+      213: 4872031003658911572
+    second: viki_6
+  - first:
+      213: -1390469417812469779
+    second: viki_7
+  - first:
+      213: -338698212898422025
+    second: viki_8
+  - first:
+      213: -8573954656436710783
+    second: viki_9
+  - first:
+      213: -4282909365613740396
+    second: viki_10
+  - first:
+      213: -3169180326564801628
+    second: viki_11
+  - first:
+      213: -3124981078982622926
+    second: viki_12
+  - first:
+      213: -1501642408581311205
+    second: viki_13
+  - first:
+      213: -2353509751373467646
+    second: viki_14
+  - first:
+      213: -6810363701632089385
+    second: viki_15
+  - first:
+      213: -9133730674758933034
+    second: viki_16
+  - first:
+      213: -2138534889620764463
+    second: Trophy_0
+  - first:
+      213: -4028373606817181150
+    second: Trophy_1
+  - first:
+      213: 5173716881689995873
+    second: Trophy_2
+  - first:
+      213: 7151011787615716276
+    second: Trophy_3
+  - first:
+      213: 8658786577845285920
+    second: Trophy_4
+  - first:
+      213: -2468133045089073921
+    second: Trophy_5
+  - first:
+      213: -6219702253236276
+    second: Trophy_6
+  - first:
+      213: -8401811528083375158
+    second: Trophy_7
+  - first:
+      213: -3807977559407055405
+    second: Trophy_8
+  - first:
+      213: 1596017757092247370
+    second: Trophy_9
+  - first:
+      213: -6140979641387257635
+    second: Trophy_10
+  - first:
+      213: 5675144711678445785
+    second: Trophy_11
+  - first:
+      213: -8165929052748418131
+    second: Trophy_12
+  - first:
+      213: 7265893629194133516
+    second: Trophy_13
+  - first:
+      213: -8965589879506605412
+    second: Trophy_14
+  - first:
+      213: 4172345190324680741
+    second: Trophy_15
+  - first:
+      213: -5407259776525077459
+    second: Trophy_16
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trophy_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7161e60c1f4a8c9418b7fa10649cb044
+      internalID: -2138534889620764463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 192
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370dbaa304a498d4399c4fee33540f22
+      internalID: -4028373606817181150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_2
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 192
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f662013b8f3e204d93416c11f5759d1
+      internalID: 5173716881689995873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_3
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 192
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad55697d0f25cf48b25c5a58114d559
+      internalID: 7151011787615716276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 192
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33fb4a4855eee4b4e86c3a9a15b7cdc8
+      internalID: 8658786577845285920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bacc1069c822e24cb2fb06c125a2644
+      internalID: -2468133045089073921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_6
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 128
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bf37cb1d75492248b87207455419791
+      internalID: -6219702253236276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_7
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 128
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0737231c61e385439bd721aca5aada9
+      internalID: -8401811528083375158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_8
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 128
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48168c7bd593e7845a419d7d01db72e1
+      internalID: -3807977559407055405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_9
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 128
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b9e75133fde92f4b975fc53e1190783
+      internalID: 1596017757092247370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7521de1d2a1d47646af50404b52385d5
+      internalID: -6140979641387257635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_11
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 64
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3a1d66818c7aa45a3a30a17dd12de7
+      internalID: 5675144711678445785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_12
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 64
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91debf2f94802f246848a0561e1b5d1e
+      internalID: -8165929052748418131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_13
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 64
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38b727b8f4bb364fad2c6d135601660
+      internalID: 7265893629194133516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_14
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 64
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6260f62b97e4d294492a913b256756cc
+      internalID: -8965589879506605412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81e65ecb16536aa4cab94aef63dc9382
+      internalID: 4172345190324680741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trophy_16
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 74
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 172ac8c4818640e48905716ce68b0c36
+      internalID: -5407259776525077459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cbb4661c568418a4db6deb9c9729d73e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

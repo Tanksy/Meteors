@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 2ab8380ea0d8c444d9391e9402145827
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - myEnergyUI: {fileID: 793180240788365717, guid: 973617768e408324b873b8d0806c1a0a,
+      type: 3}
+  - myChargeUI: {fileID: 4428398562397751803, guid: a5ce95dc933300a4f8c00068175bb42a,
+      type: 3}
+  - myBullet: {fileID: 8346348526475280225, guid: 4648abdab0c863246a172a6f1bae3a36,
+      type: 3}
+  - myCanvas: {instanceID: 0}
+  - myDetailSprite: {instanceID: 0}
+  - myTrailPrefab: {fileID: 6967876297204450833, guid: 396cccaac73879b449e290097d48b94f,
+      type: 3}
+  - myDeathSound: {fileID: 7561257128119162844, guid: db42259b73ea84045883ee8bd32aeab7,
+      type: 3}
+  - myShootSound: {fileID: 4648824984019104213, guid: c3eee8518f7967049a349b32f9737756,
+      type: 3}
+  - myChargeSound: {fileID: 8485941592806429769, guid: 7edfc145b3f4b1f43b751561e0e00c49,
+      type: 3}
+  - myDeathEffect: {fileID: 972989880968653669, guid: 082451a9d0c9c3b42a939a845c6633b0,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

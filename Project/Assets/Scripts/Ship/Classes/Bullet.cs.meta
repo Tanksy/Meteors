@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 4660def273057d4448e1a63c6c6dc16d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - myHitEffect: {fileID: 2051780246655264875, guid: 9ea1e45abc475be49ae161cb70c6346f,
+      type: 3}
+  - myBulletSprite: {fileID: 21300000, guid: 53181fa8fa6f3a447997f0995425263e, type: 3}
+  - myChargedBulletSprite: {fileID: -3028805942190641811, guid: 0960065c8cf2f134e9623ff1084c5c8b,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
