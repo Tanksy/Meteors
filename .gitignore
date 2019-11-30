@@ -3,7 +3,6 @@
 /Project/[Oo]bj/
 /Project/[Ll]ogs/
 /Project/[Mm]emoryCaptures/
-/Project/[Pp]ackages/
 /Project/.vs/
 /Project/.gradle/
 
@@ -14,6 +13,7 @@ ExportedObj/
 .consulo/
 *.csproj
 *.unityproj
+*.unitypackage
 *.sln
 *.suo
 *.tmp
