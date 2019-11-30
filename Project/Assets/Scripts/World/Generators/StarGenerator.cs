@@ -49,18 +49,17 @@ public class StarGenerator : MonoBehaviour
 	public int StarPanelCounter;
 	public int TotalPanels;
 
-	//Our world border reference.
-	private BoxCollider2D myWorldBorders;
+	private BorderManager myBorders;
 
 	private void Awake()
 	{
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
 
 		GameObject border = GameObject.Find("Border");
-		myWorldBorders = border.GetComponent<BoxCollider2D>();
+		myBorders = border.GetComponent<BorderManager>();
 
 		myStarObjects = new List<GameObject>();
-		myStarPanels = new GameObject[(int)myWorldBorders.size.x / 2,(int)myWorldBorders.size.y / 2];
+		myStarPanels = new GameObject[(int)myBorders.Width / 2,(int)myBorders.Height / 2];
 
 		StarPanelCounter = 0;
 		TotalPanels = myStarPanels.GetLength(0) * myStarPanels.GetLength(1);
@@ -68,7 +67,7 @@ public class StarGenerator : MonoBehaviour
 
 	private void Start()
 	{
-		Vector2 newPos = new Vector2(-(myWorldBorders.size.x / 2), -(myWorldBorders.size.y / 2));
+		Vector2 newPos = new Vector2(-(myBorders.Width / 2), -(myBorders.Height / 2));
 		transform.position = newPos;
 	}
 
@@ -159,7 +158,7 @@ public class StarGenerator : MonoBehaviour
 			float scalar = Random.Range(myMinScale, myMaxScale);
 			thisStar.transform.localScale = new Vector2(scalar, scalar);
 
-			Vector2 newPos = new Vector2(Random.Range(0, myWorldBorders.size.x), Random.Range(0, myWorldBorders.size.y));
+			Vector2 newPos = new Vector2(Random.Range(0, myBorders.Width), Random.Range(0, myBorders.Height));
 			thisStar.transform.position = newPos;
 			thisStar.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, Random.Range(0, 360)));
 			//Parent the Star object to the Star Controller

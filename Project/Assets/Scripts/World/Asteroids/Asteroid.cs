@@ -5,9 +5,9 @@ using UnityEngine;
 /**
  * Auth:	Jake Anderson
  * Date:	20/09/2019
- * Last:	30/10/2019
+ * Last:	23/11/2019
  * Name:	Asteroid
- * Vers:	1.2.3 - Match ending fade out and destroy
+ * Vers:	1.2.4 - Removed border check as it's moved to the border manager.
  */
 
 public class Asteroid : MonoBehaviour
@@ -235,15 +235,6 @@ public class Asteroid : MonoBehaviour
 		if (aCollision.gameObject.GetComponent<Bullet>())
             myTagger = aCollision.gameObject.GetComponent<Bullet>().Owner;
     }
-
-    //Objects leaving the map border will be moved to the opposite of their position.
-    private void OnTriggerExit2D(Collider2D aCollider)
-	{
-		if (aCollider.tag == "Border")
-		{
-			transform.Translate(new Vector2(transform.position.x * -2f, transform.position.y * -2f), Space.World);
-		}
-	}
 
 	private void Update()
 	{

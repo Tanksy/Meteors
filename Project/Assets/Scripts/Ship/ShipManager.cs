@@ -1,19 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Cinemachine;
 
 /**
  *	Auth:	Jake Anderson
  *	Date:	10/10/2019
- *	Last:	08/11/2019
+ *	Last:	23/11/2019
  *	Name:	Ship Manager
- *	Vers:	1.3 - Improvement to scoring, Adjusted Player No. to be an Int.
+ *	Vers:	1.3.1 - Moved border check to border manager.
  */
 
 [System.Serializable]
 public class ShipManager : MonoBehaviour
 {
+	[SerializeField] private bool myDebugMode;
+
 	[Header("Ship Data")]
 	[Tooltip("The Ship's data.")]
 	[SerializeField] private Ship myShip;
@@ -69,8 +71,8 @@ public class ShipManager : MonoBehaviour
 	//Used for physics interactions.
 	private Rigidbody2D myRigidBody;
 
-	//The player number is set by the Game Manager.
-	private Player myPlayer;
+	[Header("Player Data")]
+	[SerializeField] private Player myPlayer;
 	public int PlayerIndex { get { return myPlayer.Index; } }
 	//The player color is also set by the Game Manager.
 	private Palette myPlayer_Palette;
@@ -101,12 +103,18 @@ public class ShipManager : MonoBehaviour
     //The ScoreManager is passed to us by the GameManager. We access the ScoreManager and tell it to increase our displayed score whenever we score a point.
     private ScoreManager myScoreManager;
 
+    //The Target Group used by Cinemachine to keep the ships within the same camera view.
+    private CinemachineTargetGroup myCamera;
+
 	private void Awake()
 	{
 		myCollider = GetComponent<PolygonCollider2D>();
 		myRigidBody = GetComponent<Rigidbody2D>();
 
 		mySprite = GetComponent<SpriteRenderer>();
+
+		if (myDebugMode)
+			Setup(myPlayer, mySpawnpoints, myScoreManager);
 	}
 
 	public void Setup(Player aPlayer, Vector2[] aSpawnpointArray, ScoreManager aScoreManager)
@@ -127,7 +135,10 @@ public class ShipManager : MonoBehaviour
 		mySpawnpoints = aSpawnpointArray;
         myScoreManager = aScoreManager;
 
-		gameObject.layer = 9 + aPlayer.Index;
+        //Set our Camera ref.
+        myCamera = GameObject.Find("TargetGroup1").GetComponentInChildren<CinemachineTargetGroup>();
+
+        gameObject.layer = 9 + aPlayer.Index;
 	}
 
 	public void EnableControl()
@@ -180,7 +191,10 @@ public class ShipManager : MonoBehaviour
 		newColor.a = 1f;
 		mySprite.color = newColor;
 
-		Color newDetailColor = myDetailSprite.color;
+        //Add the transform to the camera.
+        myCamera.AddMember(Instance.transform, 1, 1);
+
+        Color newDetailColor = myDetailSprite.color;
 		newDetailColor.a = 1f;
 		myDetailSprite.color = newDetailColor;
 
@@ -191,11 +205,11 @@ public class ShipManager : MonoBehaviour
 		myWeapon.enabled = true;
 		myBooster.enabled = true;
 
-		//Move the object.
-		transform.SetPositionAndRotation(aPosition, Quaternion.Euler(aRotation));
+        //Move the object.
+        transform.SetPositionAndRotation(aPosition, Quaternion.Euler(aRotation));
 
-		//We're alive!
-		myShip.Status = true;
+        //We're alive!
+        myShip.Status = true;
 	}
 
 	private void AddDeathRecord(GameObject aKiller)
@@ -235,8 +249,11 @@ public class ShipManager : MonoBehaviour
 		myWeapon.enabled = false;
 		myBooster.enabled = false;
 
-		//Turn the ship sprites invisible.
-		Color newColor = mySprite.color;
+        //Remove the transform from the camera's view.
+        myCamera.RemoveMember(Instance.transform);
+
+        //Turn the ship sprites invisible.
+        Color newColor = mySprite.color;
 		newColor.a = 0f;
 		mySprite.color = newColor;
 
@@ -260,7 +277,7 @@ public class ShipManager : MonoBehaviour
         if (aKiller.GetComponent<Asteroid>())
             Debug.Log("Crashed into Roid.");
 
-		myRespawnCoroutine = Respawn(aKiller.transform);
+        myRespawnCoroutine = Respawn(aKiller.transform);
 		StartCoroutine(myRespawnCoroutine);
 	}
 
@@ -303,7 +320,7 @@ public class ShipManager : MonoBehaviour
 					mySprite.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
 					myDetailSprite.maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
 				}
-			}
+            }
         }
 	}
 
@@ -311,6 +328,9 @@ public class ShipManager : MonoBehaviour
 	public void EndGame()
 	{
 		TeleportEffect(false);
+        //Remove the transform from the camera's view.
+        myCamera.RemoveMember(Instance.transform);
+
 
 		if (myShip.HighestStreak > 1)
 		{
@@ -323,7 +343,7 @@ public class ShipManager : MonoBehaviour
 			Medal lifetimeMedal = new Medal("Lifetime", 1, "Lived for " + ((int)myShip.HighestLifetime).ToString() + " seconds!");
 			myPlayer.Medals.Add(lifetimeMedal);
 		}
-	}
+    }
 
 	private void Update()
 	{
@@ -370,16 +390,6 @@ public class ShipManager : MonoBehaviour
                     Die(collidedWith);
                 }
             }
-		}
-	}
-
-	//Objects leaving the map border will be moved to the opposite of their position.
-	private void OnTriggerExit2D(Collider2D aCollider)
-	{
-		if (aCollider.tag == "Border")
-		{
-            Debug.Log("Passed the Border");
-			gameObject.transform.Translate(new Vector2(transform.position.x * -2f, transform.position.y * -2f), Space.World);
 		}
 	}
 }

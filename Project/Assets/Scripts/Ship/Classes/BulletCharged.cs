@@ -5,9 +5,9 @@ using UnityEngine;
 /**
  * Auth:	Jake Anderson
  * Date:	19/09/2019
- * Last:	08/11/2019
+ * Last:	23/11/2019
  * Name:	Bullet
- * Vers:	2.1 - Adjusted Player No. to be an Int.
+ * Vers:	2.1.1 - Border check moved to border manager.
  */
 
 [System.Serializable]
@@ -54,15 +54,6 @@ public class BulletCharged : MonoBehaviour
 		CreateHitEffect();
 		mySpriteRenderer.sortingOrder = -1;
 		GetComponent<Rigidbody2D>().simulated = false;
-	}
-
-	private void OnTriggerExit2D(Collider2D aCollider)
-	{
-		if (aCollider.tag == "Border")
-		{
-			//Objects leaving the map border will be moved to the opposite of their position.
-			transform.Translate(new Vector2(transform.position.x * -2f, transform.position.y * -2f), Space.World);
-		}
 	}
 
 	private void Update()

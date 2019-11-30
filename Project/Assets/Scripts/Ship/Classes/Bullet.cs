@@ -5,9 +5,9 @@ using UnityEngine;
 /**
  * Auth:	Jake Anderson
  * Date:	19/09/2019
- * Last:	08/11/2019
+ * Last:	23/11/2019
  * Name:	Bullet
- * Vers:	2.1 - Adjusted Player No. to be an Int.
+ * Vers:	2.1.1 - Moved border check to border manager.
  */
 
 [System.Serializable]
@@ -19,11 +19,12 @@ public class Bullet : MonoBehaviour
 
 	//Used to set the color/opacity of the bullet sprite.
 	private SpriteRenderer mySpriteRenderer;
-	public float Alpha { get { return mySpriteRenderer.color.a; } set { Color newColor = mySpriteRenderer.color; newColor.a = value; mySpriteRenderer.color = newColor; } }
+	private float myLifetime;
 
 	private void Awake()
 	{
 		mySpriteRenderer = GetComponent<SpriteRenderer>();
+		myLifetime = 3f;
 	}
 
 	public void Setup(ShipManager aShipManager, Color aPlayerColor)
@@ -49,31 +50,13 @@ public class Bullet : MonoBehaviour
 			Destroy(this.gameObject);
 	}
 
-    private void OnTriggerExit2D(Collider2D aCollider)
-	{
-		if (aCollider.tag == "Border")
-		{
-            //Objects leaving the map border will be moved to the opposite of their position.
-            transform.Translate(new Vector2(transform.position.x * -2f, transform.position.y * -2f), Space.World);
-		}
-	}
-
 	private void Update()
 	{
 		if (!GameManager.isPaused)
 			//Opacity is reduced every tic by a multiplicative amount.
-			if (mySpriteRenderer.color.a > 0f)
-			{
-				Color newColor = mySpriteRenderer.color;
-				newColor.a -= 0.5f * Time.deltaTime;
-				
-				//Set the new color.
-				GetComponent<SpriteRenderer>().color = newColor;
-			}
+			if (myLifetime > 0f)
+				myLifetime -= 1f * Time.deltaTime;
 			else
-			{
-				//At under 10% opacity, destroy the bullet.
 				Destroy(gameObject);
-			}
 	}
 }

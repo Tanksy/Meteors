@@ -12,9 +12,6 @@ using UnityEngine;
 [System.Serializable]
 public class Player
 {
-	private int myIndex;
-	public int Index { get { return myIndex; } set { myIndex = value; } }
-
 	[Header("Player Data")]
 	[Tooltip("The Player's trail and bullet color.")]
 	[SerializeField] private Palette myPalette;
@@ -22,6 +19,10 @@ public class Player
     [Tooltip("The Player's current score.")]
 	[SerializeField] private byte myScore;
 	public byte Score { get { return myScore; } set { myScore = value; } }
+
+	[Tooltip("The player's index in the player array.")]
+	[SerializeField] private int myIndex;
+	public int Index { get { return myIndex; } set { myIndex = value; } }
 
 	[Tooltip("This Player's medals.")]
 	[SerializeField] private List<Medal> myMedals;

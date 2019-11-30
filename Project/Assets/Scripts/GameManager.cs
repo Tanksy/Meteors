@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 /**
  *  Auth:   Jake Anderson
@@ -52,9 +53,6 @@ public class GameManager : MonoBehaviour
 	//The world manager script is used to tell the worlsd to generate.
 	private WorldManager myWorld_Manager;
 
-	//The camera rig is controlled with this script. The Game Manager uses this to tell the camera a list of targets.
-	private CameraController myCameraRig;
-
 	//The message canvas is used to display messages and the player's scores.
 	private GameObject myMessageCanvas;
 	private Text myMessageCanvas_Text;
@@ -79,7 +77,7 @@ public class GameManager : MonoBehaviour
 
 	private void Awake()
 	{
-		myCameraRig = GetComponentInChildren<CameraController>();
+		//myCameraRig = GetComponentInChildren<CameraController>();
 		mySpawnPointVectors = new Vector2[2];
 		mySpawnPointVectors[0] = new Vector2(-7, 0);
 		mySpawnPointVectors[1] = new Vector2(7, 0);
@@ -97,7 +95,7 @@ public class GameManager : MonoBehaviour
 		myEndWait = new WaitForSeconds(myEndDelay);
 
 		myMenuController = gameObject.AddComponent<UIManager>();
-		myMenuController.Setup(myBackgroundUIPrefab, myLogoPrefab, myCameraRig, myPlayers, myReadyAudioPrefab);
+		myMenuController.Setup(myBackgroundUIPrefab, myLogoPrefab, myPlayers, myReadyAudioPrefab);
 	}
 
 	private void EnableShips()
@@ -133,7 +131,10 @@ public class GameManager : MonoBehaviour
 			myShips[i].Instance = thisShip;
 			//Position the ship to the spawnpoint.
 			myShips[i].transform.position = newPosition;
-		}
+
+            //Add this transform to the camera's Target Group.
+            GameObject.Find("TargetGroup1").GetComponentInChildren<CinemachineTargetGroup>().AddMember(myShips[i].Instance.transform, 1, 1);
+        }
 	}
 
 	private void SetupScoreManager()
@@ -143,19 +144,6 @@ public class GameManager : MonoBehaviour
 			colors[i] = myPlayers[i].Palette.Colors[0];
 
 		myScoreManager.Setup(colors, myMessageCanvas, myScoreHolderPrefab, myScoreGoal);
-	}
-
-	//Sets the ships as targets for the camera rig.
-	private void SetCameraTargets()
-	{
-		Transform[] targets = new Transform[myShips.Length];
-
-		for (int i = 0; i < targets.Length; i++)
-		{
-			targets[i] = myShips[i].Instance.transform;
-		}
-
-		myCameraRig.Players = targets;
 	}
 
 	private string EndMessage()
@@ -223,10 +211,6 @@ public class GameManager : MonoBehaviour
         SetupShips();
 		DisableShips();
 		myWorld_Manager.GenerateWorld();
-
-		//Set up the camera.
-		SetCameraTargets();
-		myCameraRig.SetStartPositionAndSize();
 
 		yield return myStartWait;
 	}

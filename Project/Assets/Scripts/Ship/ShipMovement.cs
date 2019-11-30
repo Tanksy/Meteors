@@ -54,6 +54,9 @@ public class ShipMovement : MonoBehaviour
 
 	private void OnDisable()
 	{
+		//Make sure the rigidbody isn't moving.
+		myRigidbody.velocity = Vector2.zero;
+
 		//When the ship is no longer an active object in the scene, disable the movement by switching the rigidbody to kinematic.
 		myRigidbody.simulated = false;
 

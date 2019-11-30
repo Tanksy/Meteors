@@ -20,8 +20,8 @@ public class UIManager : MonoBehaviour
 	private GameObject myLogo_Prefab;
 	private GameObject myLogo_Instance;
 
-	//UI elements such as the menu sprites are children of the camera rig.
-	private CameraController myCameraRig;
+	//UI elements such as the menu sprites are children of the message canvas.
+    private Transform myMessageCanvas;
 
 	private bool isPauseable = false;
 	private bool isWaiting = false;
@@ -36,14 +36,15 @@ public class UIManager : MonoBehaviour
 	private int myBlinks;
 	private GameObject myReadyAudioPrefab;
 
-	public void Setup(GameObject aMenuEffectPrefab, GameObject aLogoPrefab, CameraController aCameraRig, Player[] aPlayerArray, GameObject aReadyAudioPrefab)
+	public void Setup(GameObject aMenuEffectPrefab, GameObject aLogoPrefab, Player[] aPlayerArray, GameObject aReadyAudioPrefab)
 	{
 		myMenu_BackgroundEffectPrefab = aMenuEffectPrefab;
 		myLogo_Prefab = aLogoPrefab;
 
-		myCameraRig = aCameraRig;
+        myMessageCanvas = GameObject.Find("MessageCanvas").transform;
 
-		myMusicComponent = GetComponent<MusicComponent>();
+
+        myMusicComponent = GetComponent<MusicComponent>();
 
 		myPlayers = aPlayerArray;
 
@@ -72,7 +73,7 @@ public class UIManager : MonoBehaviour
 
 	private void StartMatch()
 	{
-		myMenu_BackgroundEffect = Instantiate(myMenu_BackgroundEffectPrefab, myCameraRig.transform) as GameObject;
+		myMenu_BackgroundEffect = Instantiate(myMenu_BackgroundEffectPrefab, myMessageCanvas) as GameObject;
 
 		for (int i = 0; i < myPreviews.Length; i++)
 			myPreviews[i].Clear();
@@ -108,7 +109,7 @@ public class UIManager : MonoBehaviour
 
 	private IEnumerator ShowLogo()
 	{
-		myLogo_Instance = Instantiate(myLogo_Prefab, myCameraRig.transform) as GameObject;
+		myLogo_Instance = Instantiate(myLogo_Prefab, myMessageCanvas) as GameObject;
 
 		yield return new WaitForSeconds(1.66f);
 
@@ -117,7 +118,7 @@ public class UIManager : MonoBehaviour
 
 	public void StartEndingSequence()
 	{
-		myMenu_BackgroundEffect = Instantiate(myMenu_BackgroundEffectPrefab, myCameraRig.transform) as GameObject;
+		myMenu_BackgroundEffect = Instantiate(myMenu_BackgroundEffectPrefab, myMessageCanvas) as GameObject;
 		myMusicComponent.Pause();
 
 		StartCoroutine(ShowLogo());

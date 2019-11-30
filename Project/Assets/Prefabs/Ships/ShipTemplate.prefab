@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4924140342976282141}
   - component: {fileID: 3355856488168815077}
   - component: {fileID: 4437635166644407249}
-  - component: {fileID: 7396067758475600717}
+  - component: {fileID: 3744830127441546767}
   - component: {fileID: 6870105880836390021}
   m_Layer: 0
   m_Name: ShipTemplate
@@ -150,40 +150,26 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 1
-  m_AngularDrag: 1
+  m_LinearDrag: 0.1
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7396067758475600717
-BoxCollider2D:
+--- !u!114 &3744830127441546767
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181502960751576345}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.005794525, y: -0.09464422}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8956982, y: 0.75276595}
-  m_EdgeRadius: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d924b1d9eaa3b1e409d39c738a20a528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6870105880836390021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ab8380ea0d8c444d9391e9402145827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myDebugMode: 0
   myShip:
     isAlive: 1
     myDeaths: []
@@ -203,7 +190,7 @@ MonoBehaviour:
     myHighestStreak: 0
     myLifetime: 0
     myHighestLifetime: 0
-    myForce: 3
+    myForce: 1
     myHandling: 3
     myMaxEnergy: 3
     myEnergyChargeAmount: 2
@@ -237,6 +224,12 @@ MonoBehaviour:
     type: 3}
   myTeleportEffect: {fileID: 6842254167357224340, guid: 2aab41edbaa77224b9c3b609ee26d865,
     type: 3}
+  myPlayer:
+    myPalette:
+      myColors: []
+    myScore: 0
+    myIndex: 0
+    myMedals: []
 --- !u!1 &4904067672568032647
 GameObject:
   m_ObjectHideFlags: 0

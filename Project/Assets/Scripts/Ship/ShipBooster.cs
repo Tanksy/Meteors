@@ -5,8 +5,8 @@ using UnityEngine;
 /**
  *	Auth:	Jake Anderson
  *	Date:	27/10/2019
- *	Last:	08/11/2019
- *	Vers:	1.1 - Trying to figure out why the Trail won't go away. Adjusted Player No. to be an Int.
+ *	Last:	23/11/2019
+ *	Vers:	1.2 - Checks for existence of meter when charging. No longer passes data to Trail Controller.
  */
 
 public class ShipBooster : MonoBehaviour
@@ -16,9 +16,11 @@ public class ShipBooster : MonoBehaviour
 
 	//Player color is also passed from the ship. This is used to color the trail renderer.
 	private Color myPlayer_Color;
+	public Color Color { get { return myPlayer_Color; } }
 
 	//The trail object is an instance of this prefab.
 	private GameObject myTrail_Prefab;
+	public GameObject TrailPrefab { get { return myTrail_Prefab; } }
 
 	//The Trail Controller is used to decouple the existing trail object from us, and create a new one.
 	private TrailController myTrail_Controller;
@@ -71,7 +73,7 @@ public class ShipBooster : MonoBehaviour
 
 	private void Awake()
 	{
-		myTrail_Controller = gameObject.AddComponent<TrailController>();
+		myTrail_Controller = gameObject.GetComponent<TrailController>();
 		myRigidbody = GetComponent<Rigidbody2D>();
 
 		myInput = "Boost0";
@@ -94,7 +96,7 @@ public class ShipBooster : MonoBehaviour
 		myBoostMeter_Prefab = aMeterPrefab;
 
 		myTrail_Prefab = aTrailPrefab;
-		myTrail_Controller.Setup(aPlayerColor, aTrailPrefab);
+		myTrail_Controller.Setup();
 	}
 
 	private void OnDisable()
@@ -106,11 +108,6 @@ public class ShipBooster : MonoBehaviour
 		if (myBoostMeter_Instance != null)
 			Destroy(myBoostMeter_Instance);
 	}
-
-    private void OnEnable()
-    {
-        myTrail_Controller.StopEmit();
-    }
 
 	private void CreateMeter()
 	{
@@ -146,7 +143,7 @@ public class ShipBooster : MonoBehaviour
 				CreateMeter();
 
 			//If the input button is pressed, the ship charges boost.
-			if (Input.GetButton(myInput))
+			if (Input.GetButton(myInput) && myBoostMeter_Instance != null)
 			{
 				//Charge up the boost by the Charge amount over time, stopping it from going over the maximum.
 				myBoost_Current += myBoost_Charge * Time.deltaTime;
@@ -159,7 +156,7 @@ public class ShipBooster : MonoBehaviour
 				if (myBoostSound_Cooldown <= 0)
 				{
 					if (myBoost_Current >= 0)
-						myBoostSound_Pitch += 0.15f;
+						myBoostSound_Pitch += 0.33f;
 
 					GameObject thisBoostSound = Instantiate(myBoostSound_Prefab, this.transform);
 					thisBoostSound.GetComponent<AudioComponent>().PlayMe(0.7f, -Mathf.Clamp(myBoostSound_Pitch, 0.33f, 1.66f));
@@ -194,5 +191,11 @@ public class ShipBooster : MonoBehaviour
 			//As force is applied, we lose boost. The boost we lose equates to our maximum boost over a second, to make the boost drain quickly.
 			myBoost_Current -= (myBoost_Max * Time.deltaTime);
 		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (isBoosting)
+			myTrail_Controller.Snip();
 	}
 }
